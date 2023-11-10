@@ -62,10 +62,12 @@ const scrollLength = document.querySelector('.img2').offsetWidth;
 arrowGo.forEach(e =>{
     e.addEventListener('click', ()=>{
         swapper.scrollLeft += (e.id === "left")?-(scrollLength+19) : (scrollLength+19);
-        if((swapper.scrollWidth - swapper.offsetWidth) === swapper.scrollLeft&& e.id === "right" ){
+        console.log(Math.round(swapper.scrollWidth - swapper.offsetWidth))
+        console.log(Math.round(swapper.scrollWidth - swapper.offsetWidth))
+        if(Math.round(swapper.scrollWidth - swapper.offsetWidth) === Math.round(swapper.scrollLeft) && e.id === "right" ){
             swapper.scrollLeft = 0;
         }
-        if(0 === swapper.scrollLeft&& e.id === "left" ){
+        if(0 === swapper.scrollLeft && e.id === "left" ){
             swapper.scrollLeft = swapper.scrollWidth - swapper.offsetWidth;
         }
            
@@ -75,7 +77,7 @@ setInterval(()=>{
 
     console.log()
     swapper.scrollLeft +=(scrollLength+19);
-    if((swapper.scrollWidth - swapper.offsetWidth) === swapper.scrollLeft ){
+    if((Math.round(swapper.scrollWidth - swapper.offsetWidth) === Math.round(swapper.scrollLeft))){
         swapper.scrollLeft = 0;
     }
 }, 6000);
