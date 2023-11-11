@@ -63,8 +63,9 @@ arrowGo.forEach(e =>{
     e.addEventListener('click', ()=>{
         swapper.scrollLeft += (e.id === "left")?-(scrollLength+19) : (scrollLength+19);
         console.log(Math.round(swapper.scrollWidth - swapper.offsetWidth))
-        console.log(Math.round(swapper.scrollWidth - swapper.offsetWidth))
-        if(Math.round(swapper.scrollWidth - swapper.offsetWidth) === Math.round(swapper.scrollLeft) && e.id === "right" ){
+        console.log(swapper.scrollLeft)
+        if((Math.round(swapper.scrollWidth - swapper.offsetWidth) - Math.ceil(swapper.scrollLeft)) > -8
+        && (Math.round(swapper.scrollWidth - swapper.offsetWidth) - Math.ceil(swapper.scrollLeft)) <8 && e.id === "right" ){
             swapper.scrollLeft = 0;
         }
         if(0 === swapper.scrollLeft && e.id === "left" ){
@@ -77,7 +78,8 @@ setInterval(()=>{
 
     console.log()
     swapper.scrollLeft +=(scrollLength+19);
-    if((Math.round(swapper.scrollWidth - swapper.offsetWidth) === Math.round(swapper.scrollLeft))){
+    if((Math.round(swapper.scrollWidth - swapper.offsetWidth) - Math.ceil(swapper.scrollLeft)) > -8
+        && (Math.round(swapper.scrollWidth - swapper.offsetWidth) - Math.ceil(swapper.scrollLeft)) <8){
         swapper.scrollLeft = 0;
     }
 }, 6000);
