@@ -91,6 +91,9 @@ swapper.addEventListener('mousedown',dragOn)
 swapper.addEventListener('mouseup',dragOff)
 swapper.addEventListener('mousemove',dragging)
 swapper.addEventListener('mouseleave',dragOff)
+swapper.addEventListener("touchstart", touchOn);
+swapper.addEventListener("touchmove", Touching);
+
 
 function dragOn(e){
     isDrag = true;
@@ -100,15 +103,38 @@ function dragOn(e){
 }
 function dragOff(){
     isDrag = false;
+    swapper.style.scrollSnapType = "X mandatory";
+    console.log("off")
+}
+function touchOn(e){
+    isDrag = true;
+    prevPageX = e.changedTouches[0].clientX;
+    prevScrll = this.scrollLeft;
+    
 }
 
 function dragging(e){
     e.preventDefault();
+    
 
     if(isDrag){
         let postion = e.pageX - prevPageX;
         swapper.scrollLeft =prevScrll - postion;
     }
+}
+function Touching(e){
+    e.preventDefault();
+
+    if(isDrag){
+        console.log(e.changedTouches[0].clientX)
+        let postion = e.changedTouches[0].clientX - prevPageX;
+        swapper.scrollLeft =prevScrll - postion;
+    }
+    if((Math.round(swapper.scrollWidth - swapper.offsetWidth) - Math.ceil(swapper.scrollLeft)) > -8
+    && (Math.round(swapper.scrollWidth - swapper.offsetWidth) - Math.ceil(swapper.scrollLeft)) <8){
+    swapper.scrollLeft = 0;
+}
+    
 }
 
 
