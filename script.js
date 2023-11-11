@@ -87,10 +87,10 @@ setInterval(()=>{
 
 
 let isDrag = false , prevPageX,prevScrll;
-swapper.addEventListener('mousedown',dragOn)
-swapper.addEventListener('mouseup',dragOff)
-swapper.addEventListener('mousemove',dragging)
-swapper.addEventListener('mouseleave',dragOff)
+swapper.addEventListener('mousedown',dragOn);
+swapper.addEventListener('mouseup',dragOff);
+swapper.addEventListener('mousemove',dragging);
+swapper.addEventListener('mouseleave',dragOff);
 swapper.addEventListener("touchstart", touchOn);
 swapper.addEventListener("touchmove", Touching);
 
@@ -103,8 +103,6 @@ function dragOn(e){
 }
 function dragOff(){
     isDrag = false;
-    swapper.style.scrollSnapType = "X mandatory";
-    console.log("off")
 }
 function touchOn(e){
     isDrag = true;
