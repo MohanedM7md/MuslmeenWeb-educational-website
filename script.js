@@ -133,9 +133,17 @@ function Touching(e){
     if((Math.round(swapper.scrollWidth - swapper.offsetWidth) - Math.ceil(swapper.scrollLeft)) > -8
     && (Math.round(swapper.scrollWidth - swapper.offsetWidth) - Math.ceil(swapper.scrollLeft)) <8){
     swapper.scrollLeft = 0;
+}  
 }
-    
-}
+
+
+const navs = Array.from(document.querySelector('.navItems').children);
+const checker = document.querySelector('#chk');
+if(screen.width < 770)
+navs.forEach(e=>e.addEventListener('mousedown',()=>{
+    checker.checked = false;
+}))
+
 
 
 
