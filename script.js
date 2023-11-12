@@ -58,6 +58,9 @@ Array.from(document.getElementsByClassName("color")).forEach(el=>el.addEventList
 const swapper = document.querySelector('.TechCont');
 const arrowGo = document.querySelectorAll('.yarbN5ls i');
 const scrollLength = document.querySelector('.img2').offsetWidth;
+const allImagesArr = Array.from(document.querySelector('.TechCont').children);
+const imgSize = allImagesArr.length;
+let oldscroll = 1;
 
 arrowGo.forEach(e =>{
     e.addEventListener('click', ()=>{
@@ -73,13 +76,41 @@ arrowGo.forEach(e =>{
         }
            
     })
-})
-setInterval(()=>{
+}) 
+let i = 1;
+//Array.from(allImagesArr[i].children)[0].style.transform = "scale(1.1)"
+let add = 1
 
+
+setInterval(()=>{
+    if(screen.width > 760){
+    console.log(add)
+    Array.from(allImagesArr[add+1].children)[0].style.boxShadow = "none"
+    Array.from(allImagesArr[add-1].children)[0].style.boxShadow = "none"
+    Array.from(allImagesArr[add-1].children)[0].style.transform = "scale(1)"
+    Array.from(allImagesArr[add+1].children)[0].style.transform = "scale(1)"
+    allImagesArr[add-1].style.zIndex = "-1";
+    allImagesArr[add+1].style.zIndex = "-1";
+    allImagesArr[add].style.zIndex = "10";
+    Array.from(allImagesArr[add].children)[0].style.zIndex = "3";
+    Array.from(allImagesArr[add].children)[0].style.transform = "scale(1.1)"
+    Array.from(allImagesArr[add].children)[0].style.boxShadow = "6px 6px 9px"
+    allImagesArr[add].style.zIndex = "10";
+    add =Math.round(swapper.scrollLeft/(document.querySelector('.img2').offsetWidth+9))+1;}else{
+        Array.from(allImagesArr[add+1].children)[0].style.boxShadow = "none"
+        Array.from(allImagesArr[add-1].children)[0].style.boxShadow = "none"
+        Array.from(allImagesArr[add].children)[0].style.boxShadow = "none"
+        Array.from(allImagesArr[add-1].children)[0].style.transform = "scale(1)"
+        Array.from(allImagesArr[add].children)[0].style.transform = "scale(1)"
+        Array.from(allImagesArr[add+1].children)[0].style.transform = "scale(1)"
+    }
+},10)
+setInterval(()=>{
+    
     console.log()
     swapper.scrollLeft +=(scrollLength+19);
     if((Math.round(swapper.scrollWidth - swapper.offsetWidth) - Math.ceil(swapper.scrollLeft)) > -8
-        && (Math.round(swapper.scrollWidth - swapper.offsetWidth) - Math.ceil(swapper.scrollLeft)) <8){
+    && (Math.round(swapper.scrollWidth - swapper.offsetWidth) - Math.ceil(swapper.scrollLeft)) <8){
         swapper.scrollLeft = 0;
     }
 }, 6000);

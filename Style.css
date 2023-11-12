@@ -520,9 +520,14 @@ main{
     transition: all 0.1s;
 
 }
+.Teachers .img2{
+    transition: all 0.1s;
+
+}
 @media screen and (max-width: 800px){
     .Teachers img{
         width:26vw;
+        border-radius: 7px;
     }
 }
 .TechCont{
@@ -537,6 +542,9 @@ main{
     overflow-x: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: X mandatory;
+    height: 70vw;
+    align-items: center;
+    transition: all 0.5s;
 }
 .TechCont:active{
     cursor: grabbing;
@@ -550,18 +558,18 @@ main{
 
 }
 
-.yarbN5ls .fa-solid.fa-arrow-left{
+/* .yarbN5ls .fa-solid.fa-arrow-left{
     position: relative;
-    top:215px;
+    top:100%;
     right:44vw;
     cursor: pointer;
 }
 .yarbN5ls .fa-solid.fa-arrow-right{
     position: relative;
-    top:-260px;
+    top:-340px;
     right:-44vw;
     cursor: pointer;
-}
+} */
 
 .TechCont .img2 img:hover, .TechCont .img2 a:hover img{    
     transform: scale(1.1);
@@ -577,7 +585,8 @@ main{
     }
     .Teachers img{
         width:38vw;
-        height: 300px;
+        height: 200px;
+        border-radius: 7px;
     
     }
     .yarbN5ls .fa-solid.fa-arrow-left{
@@ -598,6 +607,7 @@ main{
 }
 .ContactUs{
     margin: 100px 0px;
+    margin-top: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
